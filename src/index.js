@@ -1,5 +1,5 @@
 // Require the framework and instantiate it
-const fastify = require("fastify")({ logger: true });
+const fastify = require("fastify")();
 const Database = require("./db");
 const dotenv = require("dotenv");
 dotenv.config();

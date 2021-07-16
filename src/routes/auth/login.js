@@ -1,4 +1,3 @@
-const { genSaltSync } = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../../models/User");
 const { comparePassword } = require("../../utils/password");
@@ -13,7 +12,7 @@ const login = async (request, response) => {
   ) {
     response.code(400).send({ message: "Email ou senha inválidos" });
   }
-  const token = jwt.sign({ _id: user._id }, genSaltSync());
+  const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY);
   return { token };
 };
 

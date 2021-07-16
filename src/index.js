@@ -10,7 +10,7 @@ fastify.register(require("./routes/auth"), { prefix: "/auth" });
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(3000);
+    await fastify.listen(process.env.PORT || 3000);
     await Database.connect();
     console.log("MongoDB Connected successfully :)");
   } catch (err) {
